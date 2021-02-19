@@ -73,7 +73,7 @@ a:visited {
 a:hover,
 a:active {
     text-decoration: none;
-    color: #1D3F6B;
+    color: #fff;
 }
 
 ul {
@@ -985,8 +985,8 @@ nav>ul>li>a {
 }
 
 .sub-menu>li>a:hover {
-    background-color: #1D3F6B;
-    color: #444444;
+    background-color: #0E6FAF;
+    color: #fff;
 }
 
 .mini-cart {
