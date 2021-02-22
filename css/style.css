@@ -67,13 +67,13 @@ a {
 a:link,
 a:visited {
     text-decoration: none;
-    color: #0E6FAF;
+    color: #1D3F6B;
 }
 
 a:hover,
 a:active {
     text-decoration: none;
-    color: #fff;
+    color: #E3253F;
 }
 
 ul {
@@ -7013,4 +7013,8 @@ input[type=number] {
 
 .logofinal2{
     height: 80px;
+}
+
+.activo{
+    color: #E3253F !important;
 }
