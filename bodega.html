@@ -20,6 +20,17 @@
   <!-- Main CSS -->
   <link rel="stylesheet" type="text/css" href="css/font.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	
+<style>
+  #map { 
+    width: 100%;
+    height: 580px;
+    box-shadow: 5px 5px 5px #888;
+ }
+</style>
 </head>
 
 <body>
@@ -291,14 +302,20 @@
     <!-- Blog Grid 2 -->
     <div class="blog1 ">
       <div class="container">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div id="map">
         
+            </div>
+          </div>
+        </div>
+
         <div id="isotope-grid" class="clearfix">
           <div class="col-md-4 item design">
             <div class="blog-item">
               <div class="img-blog">
-                <a href="#">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.776437224721!2d-89.70223078535197!3d21.001596886013154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5674ab2ef4441f%3A0x196177279dac0bd4!2sCalle%2084%2C%20Cd%20Caucel%2C%2097314%20M%C3%A9rida%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1613584261400!5m2!1ses-419!2smx" width="880" height="360" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </a>
+                
               </div>
               <div class="blog-content">
                 <h4 class="blog-title">
@@ -315,13 +332,11 @@
               </div>
             </div>
           </div>
-          <!-- End Item -->
+          
           <div class="col-md-4 item design">
             <div class="blog-item">
               <div class="img-blog">
-                <a href="#">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.776437224721!2d-89.70223078535197!3d21.001596886013154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5674ab2ef4441f%3A0x196177279dac0bd4!2sCalle%2084%2C%20Cd%20Caucel%2C%2097314%20M%C3%A9rida%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1613584261400!5m2!1ses-419!2smx" width="880" height="360" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </a>
+                
               </div>
               <div class="blog-content">
                 <h4 class="blog-title">
@@ -338,13 +353,11 @@
               </div>
             </div>
           </div>
-          <!-- End Item -->
+          
           <div class="col-md-4 item design">
             <div class="blog-item">
               <div class="img-blog">
-                <a href="#">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.776437224721!2d-89.70223078535197!3d21.001596886013154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5674ab2ef4441f%3A0x196177279dac0bd4!2sCalle%2084%2C%20Cd%20Caucel%2C%2097314%20M%C3%A9rida%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1613584261400!5m2!1ses-419!2smx" width="880" height="360" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </a>
+                
               </div>
               <div class="blog-content">
                 <h4 class="blog-title">
@@ -362,6 +375,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
     <!-- End Blog Grid 2 -->
@@ -458,6 +472,49 @@
   <!-- =================== CUSTOM JS ==================== -->
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/isotope-custom.js"></script>
+
+  <script>
+    var greenIcon = L.icon({
+    iconUrl: 'leaf-green.png',
+    
+
+    iconSize:     [18, 55], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [14, 54], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var redIcon = L.icon({
+    iconUrl: 'leaf-red.png',
+    
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var map = L.map('map').
+       setView([23.846524341421198, -102.61554112117216],
+       5);
+  
+       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+          maxZoom: 18
+          }).addTo(map);
+  
+          
+          L.control.scale().addTo(map);
+  
+          L.marker([20.985905350190976, -89.62399075027791], {icon: greenIcon}).addTo(map).bindPopup('<b>Arelly Nuñez</b><br>Of. +52 (999) 9460100 <br> Cel. +52 (999) 553 6273<br>merida@aspenfront.com');
+          L.marker([22.766320243389874, -102.59574305021759], {icon: redIcon}).addTo(map).bindPopup('<b>Mérdia</b><br>Arelly Nuñez<br>Of. +52 (999) 9460100 <br> Cel. +52 (999) 553 6273<br>merida@aspenfront.com');
+  
+          
+         
+  </script>
+
 </body>
 
 </html>
