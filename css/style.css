@@ -5680,7 +5680,7 @@ input:focus {
     text-transform: capitalize;
 }
 
-.blog1 .blog-item .blog-content .blog-meta .author,
+.blog1 .blog-item .blog-content ,
 .cate {
     margin-right: 25px;
 }
