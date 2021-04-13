@@ -1779,7 +1779,7 @@ nav.menu-mobile>ul>li>ul {
 }
 
 .pro-link:hover>.pro-info {
-    opacity: 1;
+    opacity: 0.6;
 }
 
 h4.pro-title {
