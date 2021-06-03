@@ -47,6 +47,7 @@ section {
 
 img {
     max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -4562,7 +4563,7 @@ body.box {
 }
 
 .project--hover .project__item .company {
-    color: #1D3F6B;
+    color: #fff;
     text-transform: capitalize;
     text-align: left;
     position: absolute;
@@ -4627,6 +4628,8 @@ body.box {
 .project--zoom .pro__img {
     overflow: hidden;
 }
+
+
 
 .project--zoom .pro__img a img {
     -webkit-transition: all 0.6s ease;
